@@ -1,0 +1,27 @@
+/* header.css */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+}
+
+.header-title {
+    font-size: 24px;
+}
+
+.header-nav {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-link {
+    color: black;  /* Mengubah warna teks menjadi hitam */
+    text-decoration: none;  /* Menghilangkan garis bawah */
+    font-size: 14px;  /* Mengatur ukuran teks menjadi kecil */
+}
+
+.nav-link:hover {
+    color: #007bff; /* Menambahkan efek hover, opsional */
+}
