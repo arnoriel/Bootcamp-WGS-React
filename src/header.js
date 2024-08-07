@@ -11,6 +11,10 @@ export default function Header() {
                 <Link to="/" className="nav-link">Home</Link>
                 <Link to="/about" className="nav-link">About</Link>
                 <Link to="/contact" className="nav-link">Contact</Link>
+                <Link to="/azriel" className="nav-link">Azriel</Link>
+                <Link to="/comment" className="nav-link">Comment</Link>
+                <Link to="/countingpage" className="nav-link">Counting</Link>
+                <Link to="/clock" className="nav-link">Clock</Link>
             </nav>
         </header>
     );
