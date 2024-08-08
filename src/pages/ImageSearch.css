@@ -1,0 +1,19 @@
+.image-search {
+    text-align: center;
+}
+
+.image-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.image-item {
+    margin: 10px;
+}
+
+.image-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}

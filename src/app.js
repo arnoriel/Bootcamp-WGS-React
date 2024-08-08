@@ -9,6 +9,8 @@ import Azriel from "./pages/Azriel";
 import Comment from "./pages/Comment";
 import CountingPage from "./pages/CountingPage";
 import Clock from "./pages/Clock";
+import Form from "./pages/Form";
+import ImageSearch from './pages/ImageSearch';
 
 class App extends Component {
     render() {
@@ -23,6 +25,8 @@ class App extends Component {
                     <Route path="/comment" element={<Comment />} />
                     <Route path="/countingpage" element={<CountingPage />} />
                     <Route path="/clock" element={<Clock />} />
+                    <Route path="/form" element={<Form />} />
+                    <Route path="/imagesearch" element={<ImageSearch />} />
                 </Routes>
             </Router>
         );

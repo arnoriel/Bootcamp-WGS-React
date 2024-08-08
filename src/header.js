@@ -15,6 +15,8 @@ export default function Header() {
                 <Link to="/comment" className="nav-link">Comment</Link>
                 <Link to="/countingpage" className="nav-link">Counting</Link>
                 <Link to="/clock" className="nav-link">Clock</Link>
+                <Link to="/form" className="nav-link">Form</Link>
+                <Link to="/imagesearch" className="nav-link">Image Search</Link>
             </nav>
         </header>
     );
