@@ -6,7 +6,7 @@ import './header.css';
 export default function Header() {
     return (
         <header className="header">
-            <h1 className="header-title">My Website</h1>
+            <h1 className="header-title">Experiment React</h1>
             <nav className="header-nav">
                 <Link to="/" className="nav-link">Home</Link>
                 <Link to="/about" className="nav-link">About</Link>
