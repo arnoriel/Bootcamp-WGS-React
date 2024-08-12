@@ -27,7 +27,7 @@
 
 /* Grid gambar */
 .image-grid {
-    column-count: 5; /* Jumlah kolom seperti Pinterest */
+    column-count: 5;
     column-gap: 15px;
 }
 
@@ -85,12 +85,13 @@
 }
 
 /* Konten modal */
+/* Konten modal */
 .modal-content {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    max-width: 80%;
-    max-height: 80%;
+    max-width: 90%; /* Lebih lebar dari 80% */
+    max-height: 90%; /* Tinggi lebih besar untuk memanfaatkan ruang vertikal */
     overflow-y: auto;
     position: relative;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -112,13 +113,12 @@
 /* Gambar dalam modal */
 .modal-content img {
     max-width: 100%;
-    max-height: 60vh;
+    max-height: 75vh; /* Sedikit lebih kecil dari 60vh agar lebih memanfaatkan ruang */
     display: block;
     margin: 0 auto;
     border-radius: 8px;
     object-fit: cover;
 }
-
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -132,7 +132,6 @@
     z-index: 1000;
 }
 
-
 /* Tombol untuk menutup modal */
 .modal-content .close {
     position: absolute;
@@ -143,10 +142,24 @@
     cursor: pointer;
 }
 
+/* Tombol kembali di modal */
+.modal-content .back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 16px;
+    padding: 8px 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 /* Grid gambar serupa dalam modal */
 .similar-images-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
     margin-top: 20px;
 }
@@ -161,4 +174,11 @@
     height: auto;
     display: block;
     border-radius: 8px;
+}
+
+.similar-images-grid .image-item p {
+    margin: 5px 0;
+    font-size: 14px;
+    text-align: center;
+    color: #333;
 }

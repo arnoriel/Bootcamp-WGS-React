@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import './ImageSearch.css';
 
@@ -7,9 +7,18 @@ const ImageSearch = () => {
     const [loading, setLoading] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     const [similarImages, setSimilarImages] = useState([]);
+    const [imageHistory, setImageHistory] = useState([]);
     const [queryCache, setQueryCache] = useState({});
 
     const queryRef = useRef(null);
+    const modalContentRef = useRef(null);  // Reference for modal content
+
+    useEffect(() => {
+        // Scroll to the top of the modal when a new image is selected
+        if (modalContentRef.current) {
+            modalContentRef.current.scrollTop = 0;
+        }
+    }, [selectedImage]);
 
     const handleSearch = async (event) => {
         event.preventDefault();
@@ -29,7 +38,7 @@ const ImageSearch = () => {
                 const response = await axios.get('https://api.unsplash.com/search/photos', {
                     params: {
                         query,
-                        per_page: 20, // Kurangi jumlah per halaman jika diperlukan
+                        per_page: 20,
                         page: i
                     },
                     headers: {
@@ -40,7 +49,6 @@ const ImageSearch = () => {
                 console.log(`Response for page ${i}:`, response.data);
                 results.push(...response.data.results);
 
-                // Tambahkan jeda antar request
                 await new Promise(resolve => setTimeout(resolve, 2000)); // 2 detik jeda
             }
 
@@ -58,6 +66,7 @@ const ImageSearch = () => {
 
     const handleImageClick = async (image) => {
         console.log("Selected image:", image);
+        setImageHistory(prevHistory => [...prevHistory, selectedImage]); // Simpan gambar sebelumnya ke dalam riwayat
         setSelectedImage(image);
 
         try {
@@ -78,6 +87,15 @@ const ImageSearch = () => {
         console.log("Closing modal...");
         setSelectedImage(null);
         setSimilarImages([]);
+        setImageHistory([]); // Bersihkan riwayat saat modal ditutup
+    };
+
+    const goBack = () => {
+        if (imageHistory.length > 0) {
+            const previousImage = imageHistory[imageHistory.length - 1];
+            setSelectedImage(previousImage);
+            setImageHistory(prevHistory => prevHistory.slice(0, -1)); // Hapus gambar terakhir dari riwayat
+        }
     };
 
     const handleOverlayClick = (event) => {
@@ -110,8 +128,11 @@ const ImageSearch = () => {
 
             {selectedImage && (
                 <div className="modal-overlay" onClick={handleOverlayClick}>
-                    <div className="modal-content">
+                    <div className="modal-content" ref={modalContentRef}> {/* Apply the ref here */}
                         <span className="close" onClick={closeModal}>&times;</span>
+                        {imageHistory.length > 0 && (
+                            <button className="back-button" onClick={goBack}>Back</button>
+                        )}
                         <img src={selectedImage.urls.regular} alt={selectedImage.alt_description} className="modal-image" />
                         <h2>{selectedImage.alt_description || "Untitled"}</h2>
                         <p>By: {selectedImage.user.name}</p>
@@ -119,7 +140,7 @@ const ImageSearch = () => {
                         <h3>More images like this:</h3>
                         <div className="similar-images-grid">
                             {similarImages.map((simImage) => (
-                                <div key={simImage.id} className="image-item">
+                                <div key={simImage.id} className="image-item" onClick={() => handleImageClick(simImage)}>
                                     <img src={simImage.urls.small} alt={simImage.alt_description} />
                                 </div>
                             ))}

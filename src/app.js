@@ -11,6 +11,7 @@ import CountingPage from "./pages/CountingPage";
 import Clock from "./pages/Clock";
 import Form from "./pages/Form";
 import ImageSearch from './pages/ImageSearch';
+import VideoSearch from './pages/VideoSearch';
 
 class App extends Component {
     render() {
@@ -27,6 +28,7 @@ class App extends Component {
                     <Route path="/clock" element={<Clock />} />
                     <Route path="/form" element={<Form />} />
                     <Route path="/imagesearch" element={<ImageSearch />} />
+                    <Route path="/videosearch" element={<VideoSearch />} />
                 </Routes>
             </Router>
         );

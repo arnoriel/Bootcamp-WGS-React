@@ -17,6 +17,7 @@
 .header-nav {
     display: flex;
     gap: 15px;
+    align-items: center;
 }
 
 .nav-link {
@@ -28,4 +29,45 @@
 
 .nav-link:hover {
     color: #007bff; /* Menambahkan efek hover, opsional */
+}
+
+/* Styling untuk dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 14px;
+    padding: 10px;
+    color: black;
+    font-family: 'Roboto', sans-serif;  /* Gunakan font Roboto */
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    z-index: 1000;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;  /* Gunakan font Roboto */
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
 }

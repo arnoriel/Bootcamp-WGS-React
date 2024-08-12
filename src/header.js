@@ -1,9 +1,14 @@
-// header.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './header.css';
 
 export default function Header() {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
     return (
         <header className="header">
             <h1 className="header-title">Experiment React</h1>
@@ -15,8 +20,19 @@ export default function Header() {
                 <Link to="/comment" className="nav-link">Comment</Link>
                 <Link to="/countingpage" className="nav-link">Counting</Link>
                 <Link to="/clock" className="nav-link">Clock</Link>
+                {/* Dropdown untuk halaman pencarian */}
+                <div className="dropdown">
+                    <button onClick={toggleDropdown} className="nav-link dropdown-toggle">
+                        API Features
+                    </button>
+                    {isDropdownOpen && (
+                        <div className="dropdown-menu">
+                            <Link to="/imagesearch" className="dropdown-item">Image Search</Link>
+                            <Link to="/videosearch" className="dropdown-item">Video Search</Link>
+                        </div>
+                    )}
+                </div>
                 <Link to="/form" className="nav-link">Form</Link>
-                <Link to="/imagesearch" className="nav-link">Image Search</Link>
             </nav>
         </header>
     );
