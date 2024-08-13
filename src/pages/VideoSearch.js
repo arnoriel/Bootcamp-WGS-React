@@ -10,7 +10,7 @@ const VideoSearch = () => {
 
   const popupRef = useRef(null);
 
-  const API_KEY = 'YOURKEY';
+  const API_KEY = 'AIzaSyAqOMY68_Uq5hScNeWcLYk1wSxjwr7JhuM';
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -38,7 +38,7 @@ const VideoSearch = () => {
     setVideos(data.items);
   };
 
-  const handleCloseHistory = () => setHistoryVisible(false);
+  // const handleCloseHistory = () => setHistoryVisible(false);
 
   const handleRemoveHistoryItem = (index) => {
     setHistory(history.filter((_, i) => i !== index));

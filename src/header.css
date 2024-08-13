@@ -71,3 +71,43 @@
 .dropdown-item:hover {
     background-color: #f1f1f1;
 }
+
+.dropdown2 {
+    position: relative;
+}
+
+.dropdown2-toggle {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 14px;
+    padding: 10px;
+    color: black;
+    font-family: 'Roboto', sans-serif;  /* Gunakan font Roboto */
+    text-decoration: none;
+}
+
+.dropdown2-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    z-index: 1000;
+}
+
+.dropdown2-item {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;  /* Gunakan font Roboto */
+}
+
+.dropdown2-item:hover {
+    background-color: #f1f1f1;
+}

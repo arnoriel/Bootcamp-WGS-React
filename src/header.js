@@ -16,23 +16,23 @@ export default function Header() {
                 <Link to="/" className="nav-link">Home</Link>
                 <Link to="/about" className="nav-link">About</Link>
                 <Link to="/contact" className="nav-link">Contact</Link>
-                <Link to="/azriel" className="nav-link">Azriel</Link>
-                <Link to="/comment" className="nav-link">Comment</Link>
-                <Link to="/countingpage" className="nav-link">Counting</Link>
-                <Link to="/clock" className="nav-link">Clock</Link>
-                {/* Dropdown untuk halaman pencarian */}
                 <div className="dropdown">
                     <button onClick={toggleDropdown} className="nav-link dropdown-toggle">
-                        API Features
+                      Learning
                     </button>
                     {isDropdownOpen && (
                         <div className="dropdown-menu">
                             <Link to="/imagesearch" className="dropdown-item">Image Search</Link>
                             <Link to="/videosearch" className="dropdown-item">Video Search</Link>
+                            <Link to="/comment" className="dropdown-item">Comment</Link>
+                            <Link to="/countingpage" className="dropdown-item">Counting</Link>
+                            <Link to="/clock" className="dropdown-item">Clock</Link>
+                            <Link to="/form" className="dropdown-item">Form</Link>
+                            <Link to="/videoclass" className="dropdown-item">VideoClass</Link>
                         </div>
                     )}
                 </div>
-                <Link to="/form" className="nav-link">Form</Link>
+                <Link to="/azriel" className="nav-link">Azriel</Link>
             </nav>
         </header>
     );

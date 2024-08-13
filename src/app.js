@@ -12,6 +12,8 @@ import Clock from "./pages/Clock";
 import Form from "./pages/Form";
 import ImageSearch from './pages/ImageSearch';
 import VideoSearch from './pages/VideoSearch';
+import VideoClass from './pages/VideoClass';
+import Hooks from './Hooks';
 
 class App extends Component {
     render() {
@@ -29,6 +31,8 @@ class App extends Component {
                     <Route path="/form" element={<Form />} />
                     <Route path="/imagesearch" element={<ImageSearch />} />
                     <Route path="/videosearch" element={<VideoSearch />} />
+                    <Route path="/videoclass" element={<VideoClass />} />
+                    <Route path="/hooks" element={<Hooks />} />
                 </Routes>
             </Router>
         );
